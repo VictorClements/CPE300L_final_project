@@ -1,0 +1,8 @@
+// testvector file for the shiftRegister module
+// [0:0]shiftEnable_[7:0]wordIn_[7:0]wordOut
+1_FA_FA
+1_E2_E2
+1_B4_B4
+0_77_B4
+1_89_89
+1_00_00
