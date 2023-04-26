@@ -9,5 +9,6 @@ module shiftRegister #(parameter REGISTER_COUNT = 21, WIDTH = 8)
     if(reset)             registers <= '{default:0}; 
     else if(shiftEnable)  registers <= {registers[REGISTER_COUNT-2:0], wordIn};
   
+  assign wordOut = registers[0];
+  
 endmodule
-
