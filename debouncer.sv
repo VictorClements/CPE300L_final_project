@@ -2,7 +2,7 @@ module debouncer(input  logic slowClk, reset,
                  input  logic buttonPress,
                  output logic debouncedPress);
 
-  logic [3:0] priorPresses
+  logic [3:0] priorPresses;
 
   always_ff @(posedge slowClk)
     if(reset) priorPresses <= 0;
