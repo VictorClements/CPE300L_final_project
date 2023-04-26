@@ -1,4 +1,4 @@
-module clockDivider #(parameter WIDTH = 32, FREQENCY_IN = 50000000, FREQUENCY_OUT = 1, MULTIPLIER = ((2**WIDTH)*FREQUENCY_OUT - 1)/FREQUENCY_IN + 1)
+module clockDivider #(parameter WIDTH = 32, FREQUENCY_IN = 50000000, FREQUENCY_OUT = 1, MULTIPLIER = ((2**WIDTH)*FREQUENCY_OUT - 1)/FREQUENCY_IN + 1)
                      (input  logic clk, reset,
                       output logic slowClk);
 
