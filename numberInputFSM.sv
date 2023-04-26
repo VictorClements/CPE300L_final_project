@@ -1,4 +1,4 @@
-module numberInputFSM #()
+module numberInputFSM #(MAX_CHARACTERS)
                        (input  logic clk, reset,
                         input  logic );
 
