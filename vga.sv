@@ -1,7 +1,7 @@
 module vga(input  logic clk, reset, 
-           output logic vgaclk,          // 25.175 MHz VGA clock 
+           output logic vgaclk,          // used on DE2 board
            output logic hsync, vsync, 
-           output logic sync_b, blank_b, // to monitor & DAC 
+           output logic sync_b, blank_b, // used on DE2 board
            output logic [7:0] r, g, b);
 
   logic [9:0] x, y; 
