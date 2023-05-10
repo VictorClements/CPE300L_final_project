@@ -1,7 +1,7 @@
 //EDITED
 //got all control signals
 module datapath (input clk, reset,
-input memtoreg, pcsrc,
+input memtoreg, memwrite, pcsrc,
 input alusrc, regdst,
 input regwrite, jump,
 input jr, jal, sll, srl,
@@ -19,7 +19,7 @@ wire [4:0] writereg;
 wire [31:0] pcnext, pcnextbr, pcplus4, pcbranch, nextpcbranch; //TODO: new wire for jr
 wire [31:0] signimm, signimmsh, muxout4, signex4, r1, r2;
 wire [31:0] srca, srcb;
-wire [31:0] result, operout, muxreg2, muxnext, lbmuxout, finalout;
+wire [31:0] muxreg2, muxnext, lbmuxout, finalout;
 wire [31:0] jalmuxout, muxpcout;
 
 // next PC logic. Instantiates PC and adders
@@ -36,8 +36,8 @@ mux2 #(32) muxthree(pcnextbr, srca, jr, nextpcbranch); //TODO: new mux for jr
 // register file logic; instatiates RF
 regfile rf(clk, regwrite, instr[25:21],
 instr[20:16], writereg, finalout, srca, writedata); //TODO: altered for other instructions
-multiplyanddivider mad(srca, srcb, mult, operout); //TODO: picks between multiply and divide
-mux2 #(32) regsel(r1, r2, mfhi, muxreg2); //TODO: selects which register to use 
+multiplyanddivider mad(srca, srcb, mult, clk, memwrite, r1, r2); //TODO: picks between multiply and divide
+mux2 #(32) regsel(r1, r2, mflo, muxreg2); //TODO: selects which register to use 
 
 
 //instatiates the number of multiplexers
