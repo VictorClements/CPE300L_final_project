@@ -12,7 +12,7 @@ wire [2:0] alucontrol;
 controller c(instr[31:26], instr[5:0], zero, memtoreg, memwrite, pcsrc,
  alusrc, regdst, regwrite, jump, jr, jal, sll, srl, lb, nop, mult, mflo, 
  mfhi, div,alures, alucontrol);
-datapath dp(clk, reset, memtoreg, pcsrc,
+datapath dp(clk, reset, memtoreg, memwrite, pcsrc,
 alusrc, regdst, regwrite, jump, jr, jal,
 sll, srl, lb, nop, mult, mflo, mfhi, div, alures,
 alucontrol,zero, pc, instr,
